@@ -1,0 +1,259 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Services">
+
+<section class="mx-auto max-w-6xl px-6 md:px-16 py-24">
+
+  <!-- HEADER -->
+  <div class="max-w-2xl">
+    <h1 class="text-5xl font-serif font-semibold text-[#2f3a2f]">
+      Services
+    </h1>
+
+    <p class="mt-4 text-zinc-600 leading-7">
+      Structured virtual assistant support focused on communication, coordination, and reliability.
+    </p>
+  </div>
+
+  <!-- GRID -->
+  <div class="mt-14 grid gap-6 md:grid-cols-3">
+
+    <!-- BASIC -->
+    <div class="card-wrapper">
+      <div class="card" data-card="basic">
+
+        <div class="card-header">
+          <h2 class="title">Basic support</h2>
+
+          <button class="toggle-btn" data-target="basic">
+            More info
+          </button>
+        </div>
+
+        <div class="dropdown">
+
+          <p class="subtitle">Inbox and communication management</p>
+          <p class="text">
+            Handles emails and messages in an organized and professional way so nothing is missed. Supports recruitment communication such as follow ups and coordination messages.
+          </p>
+
+          <p class="subtitle mt-4">Calendar and scheduling support</p>
+          <p class="text">
+            Manages appointments, meetings, and reminders to ensure smooth scheduling and coordination with clients and candidates.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- OPERATIONS -->
+    <div class="card-wrapper">
+      <div class="card" data-card="ops">
+
+        <div class="card-header">
+          <h2 class="title">Operations support</h2>
+
+          <button class="toggle-btn" data-target="ops">
+            More info
+          </button>
+        </div>
+
+        <div class="dropdown">
+
+          <p class="subtitle">Task and workflow assistance</p>
+          <p class="text">
+            Follows instructions and assists with organizing tasks using tools like Google Workspace for tracking and coordination.
+          </p>
+
+          <p class="subtitle mt-4">Recruitment coordination</p>
+          <p class="text">
+            Supports screening, interview scheduling, follow ups, and coordination between applicants and hiring managers.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- BUSINESS -->
+    <div class="card-wrapper">
+      <div class="card" data-card="biz">
+
+        <div class="card-header">
+          <h2 class="title">Business support</h2>
+
+          <button class="toggle-btn" data-target="biz">
+            More info
+          </button>
+        </div>
+
+        <div class="dropdown">
+
+          <p class="subtitle">Social media assistance</p>
+          <p class="text">
+            Helps with posting, content planning, and monitoring trends to support online presence.
+          </p>
+
+          <p class="subtitle mt-4">Client outreach</p>
+          <p class="text">
+            Handles outreach, follow ups, and communication through email, chat, or messages.
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+  /* WRAPPER */
+  .card-wrapper{
+    position:relative;
+  }
+
+  /* CARD */
+  .card{
+    background:#faf7f2;
+    border:1px solid #e7e1d6;
+    border-radius:16px;
+    padding:18px;
+
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      background 0.3s ease,
+      box-shadow 0.35s ease;
+  }
+
+  /* APPLE HOVER LIFT */
+  .card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 12px 30px rgba(0,0,0,0.08);
+    background:#6f7f6a;
+  }
+
+  .card:hover .title{
+    color:#f6f2ea;
+  }
+
+  /* HEADER */
+  .card-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:10px;
+  }
+
+  .title{
+    font-size:18px;
+    font-weight:600;
+    color:#2f3a2f;
+    transition:0.3s ease;
+  }
+
+  /* BUTTON */
+  .toggle-btn{
+    font-size:12px;
+    padding:6px 10px;
+    border-radius:999px;
+    border:1px solid #6f7f6a;
+    color:#6f7f6a;
+    background:transparent;
+    cursor:pointer;
+
+    transition:0.3s ease;
+  }
+
+  .card:hover .toggle-btn{
+    background:#f6f2ea;
+    color:#2f3a2f;
+    border-color:#f6f2ea;
+  }
+
+  /* ACTIVE CARD */
+  .card.active{
+    background:#6f7f6a;
+    transform:translateY(-2px) scale(1.01);
+    box-shadow:0 18px 40px rgba(0,0,0,0.12);
+  }
+
+  .card.active .title{
+    color:#f6f2ea;
+  }
+
+  .card.active .toggle-btn{
+    background:#f6f2ea;
+    color:#2f3a3f;
+    border-color:#f6f2ea;
+  }
+
+  /* DROPDOWN (APPLE STYLE MOTION) */
+  .dropdown{
+    position:absolute;
+    left:0;
+    right:0;
+    top:100%;
+    margin-top:10px;
+
+    background:#6f7f6a;
+    border-radius:16px;
+    padding:16px;
+
+    opacity:0;
+    transform:translateY(-14px) scale(0.98);
+    pointer-events:none;
+
+    transition:
+      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .card.active .dropdown{
+    opacity:1;
+    transform:translateY(0) scale(1);
+    pointer-events:auto;
+  }
+
+  /* TEXT INSIDE DROPDOWN */
+  .subtitle{
+    font-size:13px;
+    font-weight:600;
+    color:#f6f2ea;
+  }
+
+  .text{
+    font-size:13px;
+    line-height:1.6;
+    color:#f6f2ea;
+    opacity:0.9;
+    margin-top:4px;
+  }
+
+</style>
+
+<script is:inline>
+
+  const buttons = document.querySelectorAll(".toggle-btn");
+
+  buttons.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+      const target = btn.dataset.target;
+      const card = document.querySelector(`[data-card="${target}"]`);
+
+      card.classList.toggle("active");
+
+    });
+
+  });
+
+</script>
+
+</MainLayout>

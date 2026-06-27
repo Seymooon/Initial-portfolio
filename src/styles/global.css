@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* basic design system so you SEE styling immediately */
+body {
+  font-family: system-ui, sans-serif;
+  background: #f6f2ea;
+  color: #3f4a3a;
+  margin: 0;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 600;
+}
+
+p {
+  color: #6b6b6b;
+}
+
+a {
+  text-decoration: none;
+}

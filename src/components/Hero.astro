@@ -1,0 +1,144 @@
+<section class="px-6 md:px-16 pt-6 pb-10">
+
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-start justify-between gap-10 mt-2">
+
+    <!-- LEFT -->
+    <div class="flex-1 text-center md:text-left">
+
+      <p class="text-6xl font-serif text-[#2f3a2f] font-semibold leading-tight">
+        John Simon Gutang
+      </p>
+
+      <p class="mt-4 max-w-2xl text-lg leading-8 text-zinc-600 text-justify">
+        I provide reliable virtual assistant support focused on organization, communication, and workflow management. I handle inbox management, scheduling, and administrative tasks to keep daily operations structured and efficient so you can focus on higher-priority work.
+      </p>
+
+      <div class="mt-5 flex justify-center md:justify-start gap-4 flex-wrap">
+
+        <!-- UPDATED BUTTON -->
+        <a
+          href="/services"
+          class="px-7 py-3 rounded-full bg-[#6f7f6a] text-[#f6f2ea] shadow-sm transition hover:-translate-y-1 hover:shadow-md"
+        >
+          View services
+        </a>
+
+        <a
+          href="/contact"
+          class="px-7 py-3 rounded-full border border-[#6f7f6a] text-[#6f7f6a] transition hover:bg-[#6f7f6a] hover:text-[#f6f2ea]"
+        >
+          Contact
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+    <div class="flex-1 flex justify-center md:justify-end">
+
+      <img
+        src="/me.png"
+        alt="John Simon Gutang"
+        class="w-[300px] h-[300px] md:w-[320px] md:h-[320px] rounded-full object-cover border border-[#e7e1d6] shadow-md md:-translate-x-5"
+      />
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- SKILLS -->
+<section class="px-6 md:px-16 pb-20 -mt-2">
+
+  <div class="max-w-6xl mx-auto">
+
+    <!-- HEADER -->
+    <h2 class="text-3xl font-light text-[#2f3a2f]">
+      Skills & experience
+    </h2>
+
+    <h3 class="mt-1 text-xs uppercase tracking-[0.35em] text-[#7a8b78]">
+      What I bring to the table
+    </h3>
+
+    <!-- GRID -->
+    <div class="mt-6 grid gap-4 md:grid-cols-3">
+
+      <div class="skill-card">
+        <h4>Client communication & inbox management</h4>
+        <p>Handles email and message organization, response management, and maintaining clear professional communication with clients.</p>
+      </div>
+
+      <div class="skill-card">
+        <h4>Scheduling & calendar coordination</h4>
+        <p>Manages appointments, meetings, and calendars to ensure smooth daily and long-term scheduling without conflicts.</p>
+      </div>
+
+      <div class="skill-card">
+        <h4>Recruitment coordination & interview support</h4>
+        <p>Assists in candidate screening, interview scheduling, coordination with hiring managers, and follow-up communications.</p>
+      </div>
+
+      <div class="skill-card">
+        <h4>Project coordination & task management</h4>
+        <p>Assists in organizing tasks, tracking project progress, coordinating timelines, and ensuring workflows stay structured and on schedule.</p>
+      </div>
+
+      <div class="skill-card">
+        <h4>Social media management & content creation</h4>
+        <p>Creates posts, designs simple graphics, and supports content planning while monitoring trends and engagement.</p>
+      </div>
+
+      <div class="skill-card">
+        <h4>Outbound communication & client outreach</h4>
+        <p>Handles outreach through email, messaging, and calls to clients, candidates, or stakeholders for updates and coordination.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<style>
+
+  .skill-card{
+    padding: 18px 20px;
+    border: 1px solid #e7e1d6;
+    border-radius: 14px;
+    background: transparent;
+    transition: all 0.3s ease;
+    cursor: default;
+    overflow: hidden;
+  }
+
+  .skill-card h4{
+    font-size: 15px;
+    font-weight: 500;
+    color: #3f4a3a;
+    transition: all 0.3s ease;
+  }
+
+  .skill-card p{
+    margin-top: 6px;
+    font-size: 13px;
+    line-height: 1.6;
+    color: #6b6b6b;
+    transition: all 0.3s ease;
+  }
+
+  /* SAFE HOVER (NO LAYOUT SHIFT) */
+  .skill-card:hover{
+    background: #6f7f6a;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  }
+
+  .skill-card:hover h4,
+  .skill-card:hover p{
+    color: #f6f2ea;
+  }
+
+</style>

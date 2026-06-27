@@ -1,0 +1,66 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+---
+
+<MainLayout title="Portfolio">
+
+  <section class="mx-auto max-w-5xl px-6 md:px-16 py-24">
+
+    <div class="text-center">
+
+  <h1 class="text-6xl md:text-7xl font-serif font-semibold text-[#2f3a2f] leading-none">
+    Portfolio
+  </h1>
+
+  <p class="mt-4 text-sm uppercase tracking-[0.35em] text-[#7a8b78]">
+    UNDER DEVELOPMENT :P
+  </p>
+
+  <p class="mt-6 mx-auto max-w-xl text-lg leading-8 text-zinc-600">
+    I'm currently building this section with case studies and sample projects.
+    Check back soon to see examples of my work!
+  </p>
+
+</div>
+
+    <div class="mt-12 flex justify-center">
+
+      <div class="overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#faf7f2] shadow-md">
+
+        <iframe
+          src="https://giphy.com/embed/BSx6mzbW1ew7K"
+          width="480"
+          height="360"
+          frameborder="0"
+          allowfullscreen
+          class="block max-w-full"
+        ></iframe>
+
+      </div>
+
+    </div>
+
+    <div class="mt-12 flex justify-center">
+
+      <a
+        href="/contact"
+        class="rounded-full border border-[#6f7f6a] px-7 py-3 text-[#6f7f6a] transition duration-300 hover:bg-[#6f7f6a] hover:text-[#f6f2ea]"
+      >
+        Let's work together →
+      </a>
+
+    </div>
+
+  </section>
+
+  <style>
+
+    iframe{
+      display:block;
+      max-width:100%;
+      border:0;
+    }
+
+  </style>
+
+</MainLayout>

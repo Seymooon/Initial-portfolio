@@ -1,0 +1,230 @@
+---
+import "../styles/global.css";
+
+const { title = "VA Portfolio" } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{title}</title>
+</head>
+
+<body class="bg-[#f6f2ea] text-[#3f4a3a] overflow-x-hidden">
+
+  <!-- ================= HEADER ================= -->
+
+  <header class="fixed inset-x-0 top-0 z-[100]">
+    <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-6">
+
+      <!-- BRAND -->
+      <div class="select-none text-sm md:text-base uppercase tracking-[0.4em] text-[#6f7f6a] font-medium">
+        Virtual Assistant Services
+      </div>
+
+      <!-- HAMBURGER -->
+      <button
+        id="menuBtn"
+        aria-label="Open Menu"
+        class="relative z-[110] flex h-12 w-12 items-center justify-center rounded-full bg-[#6f7f6a] shadow-lg transition-all duration-300 hover:scale-105"
+      >
+        <span id="line1" class="absolute h-[2.5px] w-[18px] bg-[#f6f2ea]" style="top:18px;"></span>
+        <span id="line2" class="absolute h-[2.5px] w-[18px] bg-[#f6f2ea]" style="top:23px;"></span>
+        <span id="line3" class="absolute h-[2.5px] w-[18px] bg-[#f6f2ea]" style="top:28px;"></span>
+      </button>
+
+    </div>
+  </header>
+
+  <!-- ================= OVERLAY ================= -->
+
+  <div
+    id="overlay"
+    class="fixed inset-0 z-[80] bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300"
+  ></div>
+
+  <!-- ================= MENU ================= -->
+
+  <aside
+    id="menuPanel"
+    class="fixed right-0 top-0 z-[90] h-screen w-[85%] max-w-sm translate-x-full rounded-l-[42px] border-l border-[#e4ddd1] bg-[#faf7f2] shadow-[0_25px_70px_rgba(0,0,0,.18)] transition-transform duration-500"
+  >
+
+    <div class="flex h-full flex-col px-10 pt-28 pb-12">
+
+      <!-- NAV LINKS -->
+      <nav class="flex flex-col gap-10">
+
+        <a href="/" class="menu-link">Home</a>
+
+        <!-- IMPORTANT: THIS MUST MATCH YOUR FILE NAME -->
+        <a href="/services" class="menu-link">Services</a>
+
+        <a href="/projects" class="menu-link">Portfolio</a>
+
+        <a href="/contact" class="menu-link">Contact</a>
+
+      </nav>
+
+      <!-- FOOTER BRAND -->
+      <div class="mt-auto">
+
+        <div class="mb-6 h-px w-16 bg-[#ddd5c9]"></div>
+
+        <p class="text-xl font-serif font-semibold text-[#3f4a3a]">
+          John Simon Gutang
+        </p>
+
+        <p class="mt-1 text-sm tracking-[0.25em] text-[#7a8b78] uppercase">
+          VA SERVICES
+        </p>
+
+      </div>
+
+    </div>
+
+  </aside>
+
+  <!-- ================= CONTENT ================= -->
+
+  <main class="pt-24">
+    <slot />
+  </main>
+
+  <!-- ================= STYLES ================= -->
+
+  <style>
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    #menuBtn span{
+      transition:
+        top .35s ease,
+        transform .35s ease,
+        opacity .25s ease,
+        background .35s ease;
+    }
+
+    .menu-link{
+
+      display:block;
+      width:fit-content;
+
+      font-size:3rem;
+      font-weight:300;
+      line-height:1;
+
+      transition:
+        transform .35s cubic-bezier(.22,.61,.36,1),
+        color .35s ease,
+        letter-spacing .35s ease;
+    }
+
+    .menu-link:hover{
+      transform: translateX(14px) translateY(-2px) scale(1.04);
+      color:#6f7f6a;
+      letter-spacing:.04em;
+    }
+
+  </style>
+
+  <!-- ================= SCRIPT ================= -->
+
+  <script is:inline>
+
+    const menuBtn = document.getElementById("menuBtn");
+    const menuPanel = document.getElementById("menuPanel");
+    const overlay = document.getElementById("overlay");
+
+    const line1 = document.getElementById("line1");
+    const line2 = document.getElementById("line2");
+    const line3 = document.getElementById("line3");
+
+    const links = document.querySelectorAll(".menu-link");
+
+    let isOpen = false;
+
+    function animateIcon(open){
+
+      if(open){
+
+        line1.style.top = "23px";
+        line3.style.top = "23px";
+
+        line1.style.transform = "rotate(45deg)";
+        line3.style.transform = "rotate(-45deg)";
+        line2.style.opacity = "0";
+
+      }else{
+
+        line1.style.top = "18px";
+        line2.style.top = "23px";
+        line3.style.top = "28px";
+
+        line1.style.transform = "rotate(0deg)";
+        line3.style.transform = "rotate(0deg)";
+        line2.style.opacity = "1";
+
+      }
+
+    }
+
+    function openMenu(){
+
+      isOpen = true;
+
+      menuPanel.classList.remove("translate-x-full");
+      overlay.classList.remove("opacity-0", "pointer-events-none");
+
+      animateIcon(true);
+
+      links.forEach((link,index)=>{
+
+        link.animate(
+          [
+            { opacity:0, transform:"translateX(35px)" },
+            { opacity:1, transform:"translateX(0)" }
+          ],
+          {
+            duration:450,
+            delay:index*90,
+            easing:"cubic-bezier(.22,.61,.36,1)",
+            fill:"both"
+          }
+        );
+
+      });
+
+    }
+
+    function closeMenu(){
+
+      isOpen = false;
+
+      menuPanel.classList.add("translate-x-full");
+      overlay.classList.add("opacity-0", "pointer-events-none");
+
+      animateIcon(false);
+
+    }
+
+    menuBtn.addEventListener("click",()=>{
+      isOpen ? closeMenu() : openMenu();
+    });
+
+    overlay.addEventListener("click", closeMenu);
+
+    links.forEach(link=>{
+      link.addEventListener("click", closeMenu);
+    });
+
+    animateIcon(false);
+
+  </script>
+
+</body>
+</html>
