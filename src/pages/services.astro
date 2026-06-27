@@ -4,256 +4,297 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="Services">
 
-<section class="mx-auto max-w-6xl px-6 md:px-16 py-24">
+<section class="services-page">
 
-  <!-- HEADER -->
-  <div class="max-w-2xl">
-    <h1 class="text-5xl font-serif font-semibold text-[#2f3a2f]">
+  <!-- ================= INTRO ================= -->
+
+  <div class="intro">
+
+    <p class="eyebrow">
+      Virtual Assistant
+    </p>
+
+    <h1>
       Services
     </h1>
 
-    <p class="mt-4 text-zinc-600 leading-7">
-      Structured virtual assistant support focused on communication, coordination, and reliability.
+    <p class="description">
+      Structured virtual assistant support focused on communication,
+      organization, and reliability.
     </p>
+
   </div>
 
-  <!-- GRID -->
-  <div class="mt-14 grid gap-6 md:grid-cols-3">
+  <!-- ================= SERVICES ================= -->
+
+  <div class="services-list">
 
     <!-- BASIC -->
-    <div class="card-wrapper">
-      <div class="card" data-card="basic">
+    <details class="service-card">
 
-        <div class="card-header">
-          <h2 class="title">Basic support</h2>
-
-          <button class="toggle-btn" data-target="basic">
-            More info
-          </button>
+      <summary>
+        <div class="left">
+          <p class="service-number">01</p>
+          <h2>Basic Support</h2>
         </div>
 
-        <div class="dropdown">
+        <span class="service-pill">More info</span>
+      </summary>
 
-          <p class="subtitle">Inbox and communication management</p>
-          <p class="text">
-            Handles emails and messages in an organized and professional way so nothing is missed. Supports recruitment communication such as follow ups and coordination messages.
+      <div class="service-content">
+        <div class="service-inner">
+
+          <h3>Inbox & Communication Management</h3>
+          <p>
+            Handles emails and messages in an organized and professional way so nothing is missed.
           </p>
 
-          <p class="subtitle mt-4">Calendar and scheduling support</p>
-          <p class="text">
-            Manages appointments, meetings, and reminders to ensure smooth scheduling and coordination with clients and candidates.
+          <h3>Calendar & Scheduling Support</h3>
+          <p>
+            Manages appointments, meetings, reminders, and scheduling to keep your day organized.
           </p>
 
         </div>
-
       </div>
-    </div>
+
+    </details>
 
     <!-- OPERATIONS -->
-    <div class="card-wrapper">
-      <div class="card" data-card="ops">
+    <details class="service-card">
 
-        <div class="card-header">
-          <h2 class="title">Operations support</h2>
-
-          <button class="toggle-btn" data-target="ops">
-            More info
-          </button>
+      <summary>
+        <div class="left">
+          <p class="service-number">02</p>
+          <h2>Operations Support</h2>
         </div>
 
-        <div class="dropdown">
+        <span class="service-pill">More info</span>
+      </summary>
 
-          <p class="subtitle">Task and workflow assistance</p>
-          <p class="text">
-            Follows instructions and assists with organizing tasks using tools like Google Workspace for tracking and coordination.
+      <div class="service-content">
+        <div class="service-inner">
+
+          <h3>Task & Workflow Assistance</h3>
+          <p>
+            Organizing workflows and managing tasks using productivity tools like Google Workspace.
           </p>
 
-          <p class="subtitle mt-4">Recruitment coordination</p>
-          <p class="text">
-            Supports screening, interview scheduling, follow ups, and coordination between applicants and hiring managers.
+          <h3>Recruitment Coordination</h3>
+          <p>
+            Supports scheduling, screening, follow-ups, and candidate coordination.
           </p>
 
         </div>
-
       </div>
-    </div>
+
+    </details>
 
     <!-- BUSINESS -->
-    <div class="card-wrapper">
-      <div class="card" data-card="biz">
+    <details class="service-card">
 
-        <div class="card-header">
-          <h2 class="title">Business support</h2>
-
-          <button class="toggle-btn" data-target="biz">
-            More info
-          </button>
+      <summary>
+        <div class="left">
+          <p class="service-number">03</p>
+          <h2>Business Support</h2>
         </div>
 
-        <div class="dropdown">
+        <span class="service-pill">More info</span>
+      </summary>
 
-          <p class="subtitle">Social media assistance</p>
-          <p class="text">
-            Helps with posting, content planning, and monitoring trends to support online presence.
+      <div class="service-content">
+        <div class="service-inner">
+
+          <h3>Social Media Assistance</h3>
+          <p>
+            Content planning, scheduling, and engagement support.
           </p>
 
-          <p class="subtitle mt-4">Client outreach</p>
-          <p class="text">
-            Handles outreach, follow ups, and communication through email, chat, or messages.
+          <h3>Client Outreach</h3>
+          <p>
+            Professional outreach and follow-ups via email and messaging platforms.
           </p>
 
         </div>
-
       </div>
-    </div>
+
+    </details>
 
   </div>
 
 </section>
 
+<!-- ================= STYLES ================= -->
+
 <style>
 
-  /* WRAPPER */
-  .card-wrapper{
-    position:relative;
+.services-page{
+  max-width:1100px;
+  margin:auto;
+  padding:6rem 1.5rem 5rem;
+}
+
+/* INTRO */
+
+.intro{
+  max-width:720px;
+}
+
+.eyebrow{
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.3em;
+  color:#7a8b78;
+}
+
+.intro h1{
+  margin-top:.4rem;
+  font-family:serif;
+  font-size:3.6rem;
+  font-weight:600;
+  color:#2f3a2f;
+}
+
+.description{
+  margin-top:1rem;
+  line-height:1.9;
+  max-width:620px;
+  color:#6b6b6b;
+}
+
+/* LIST */
+
+.services-list{
+  margin-top:4rem;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+}
+
+/* CARD */
+
+.service-card{
+  border:1px solid #e7e1d6;
+  border-radius:22px;
+  background:#faf7f2;
+  overflow:hidden;
+}
+
+/* SUMMARY */
+
+.service-card summary{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:26px;
+  cursor:pointer;
+  list-style:none;
+}
+
+.service-card summary::-webkit-details-marker{
+  display:none;
+}
+
+.left{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+}
+
+.service-number{
+  font-size:.75rem;
+  letter-spacing:.3em;
+  text-transform:uppercase;
+  color:#7a8b78;
+}
+
+.service-card h2{
+  font-size:1.6rem;
+  font-weight:600;
+  color:#2f3a2f;
+}
+
+.service-pill{
+  border:1px solid #6f7f6a;
+  border-radius:999px;
+  padding:8px 16px;
+  font-size:.75rem;
+  color:#6f7f6a;
+}
+
+/* DROPDOWN */
+
+.service-content{
+  display:grid;
+  grid-template-rows:0fr;
+  transition:grid-template-rows .45s ease;
+}
+
+.service-inner{
+  overflow:hidden;
+  padding:0 26px;
+}
+
+.service-card[open] .service-content{
+  grid-template-rows:1fr;
+}
+
+.service-card[open] .service-inner{
+  padding:0 26px 26px;
+}
+
+/* OPEN STATE */
+
+.service-card[open]{
+  background:#6f7f6a;
+}
+
+.service-card[open] .service-number,
+.service-card[open] h2{
+  color:#f6f2ea;
+}
+
+.service-card[open] .service-pill{
+  background:#f6f2ea;
+  color:#2f3a2f;
+}
+
+/* TEXT HIERARCHY FIX */
+
+.service-inner h3{
+  margin-top:18px;
+  font-size:15px;
+  font-weight:700;
+  color:#f6f2ea;   /* white + bold */
+}
+
+.service-inner p{
+  margin-top:6px;
+  line-height:1.8;
+  font-weight:400; /* normal */
+  color:#f6f2ea;   /* white */
+  opacity:0.9;     /* softer hierarchy */
+}
+
+/* MOBILE */
+
+@media (max-width:768px){
+
+  .intro h1{
+    font-size:3rem;
   }
 
-  /* CARD */
-  .card{
-    background:#faf7f2;
-    border:1px solid #e7e1d6;
-    border-radius:16px;
-    padding:18px;
-
-    transition:
-      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      background 0.3s ease,
-      box-shadow 0.35s ease;
+  .service-card summary{
+    padding:20px;
+    align-items:flex-start;
+    gap:14px;
   }
 
-  /* APPLE HOVER LIFT */
-  .card:hover{
-    transform:translateY(-4px);
-    box-shadow:0 12px 30px rgba(0,0,0,0.08);
-    background:#6f7f6a;
+  .service-card h2{
+    font-size:1.3rem;
   }
 
-  .card:hover .title{
-    color:#f6f2ea;
-  }
-
-  /* HEADER */
-  .card-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:10px;
-  }
-
-  .title{
-    font-size:18px;
-    font-weight:600;
-    color:#2f3a2f;
-    transition:0.3s ease;
-  }
-
-  /* BUTTON */
-  .toggle-btn{
-    font-size:12px;
-    padding:6px 10px;
-    border-radius:999px;
-    border:1px solid #6f7f6a;
-    color:#6f7f6a;
-    background:transparent;
-    cursor:pointer;
-
-    transition:0.3s ease;
-  }
-
-  .card:hover .toggle-btn{
-    background:#f6f2ea;
-    color:#2f3a2f;
-    border-color:#f6f2ea;
-  }
-
-  /* ACTIVE CARD */
-  .card.active{
-    background:#6f7f6a;
-    transform:translateY(-2px) scale(1.01);
-    box-shadow:0 18px 40px rgba(0,0,0,0.12);
-  }
-
-  .card.active .title{
-    color:#f6f2ea;
-  }
-
-  .card.active .toggle-btn{
-    background:#f6f2ea;
-    color:#2f3a3f;
-    border-color:#f6f2ea;
-  }
-
-  /* DROPDOWN (APPLE STYLE MOTION) */
-  .dropdown{
-    position:absolute;
-    left:0;
-    right:0;
-    top:100%;
-    margin-top:10px;
-
-    background:#6f7f6a;
-    border-radius:16px;
-    padding:16px;
-
-    opacity:0;
-    transform:translateY(-14px) scale(0.98);
-    pointer-events:none;
-
-    transition:
-      opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
-  }
-
-  .card.active .dropdown{
-    opacity:1;
-    transform:translateY(0) scale(1);
-    pointer-events:auto;
-  }
-
-  /* TEXT INSIDE DROPDOWN */
-  .subtitle{
-    font-size:13px;
-    font-weight:600;
-    color:#f6f2ea;
-  }
-
-  .text{
-    font-size:13px;
-    line-height:1.6;
-    color:#f6f2ea;
-    opacity:0.9;
-    margin-top:4px;
-  }
+}
 
 </style>
-
-<script is:inline>
-
-  const buttons = document.querySelectorAll(".toggle-btn");
-
-  buttons.forEach(btn => {
-
-    btn.addEventListener("click", () => {
-
-      const target = btn.dataset.target;
-      const card = document.querySelector(`[data-card="${target}"]`);
-
-      card.classList.toggle("active");
-
-    });
-
-  });
-
-</script>
 
 </MainLayout>
