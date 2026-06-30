@@ -57,9 +57,13 @@ import MainLayout from "../layouts/MainLayout.astro";
 
     <!-- VIEWER -->
 
-    <main class="viewer">
+   <main class="viewer">
 
-      <h2 id="subject">Loading...</h2>
+  <button id="backInbox" class="back-btn">
+    ← Inbox
+  </button>
+
+  <h2 id="subject">Loading...</h2>
 
       <div class="meta">
 
@@ -220,8 +224,30 @@ function render(i){
 
 }
 
+const sidebar = document.querySelector(".sidebar");
+const viewer = document.querySelector(".viewer");
+const backBtn = document.getElementById("backInbox");
+
 emails.forEach(btn => {
-  btn.addEventListener("click", () => render(Number(btn.dataset.id)));
+
+  btn.addEventListener("click", () => {
+
+    render(Number(btn.dataset.id));
+
+    if(window.innerWidth <= 768){
+      sidebar.classList.add("mobile-hidden");
+      viewer.classList.add("mobile-open");
+    }
+
+  });
+
+});
+
+backBtn.addEventListener("click", () => {
+
+  sidebar.classList.remove("mobile-hidden");
+  viewer.classList.remove("mobile-open");
+
 });
 
 render(0);
@@ -462,57 +488,65 @@ function toggleSheets() {
   border: none;
 }
 
-/* ================= MOBILE ================= */
-
-@media (max-width: 768px) {
-
-  .email-page{
-    padding:4rem 1rem;
-  }
-
-  .intro h1{
-    font-size:2.4rem;
-  }
+@media (max-width:768px){
 
   .email-app{
-    grid-template-columns:1fr;
-    overflow:hidden;
+    display:block;
   }
 
   .sidebar{
     border-right:none;
-    border-bottom:1px solid #e7e1d6;
+    border-bottom:none;
+    background:#faf7f2;
   }
 
   .email-list{
-    display:flex;
-    overflow-x:auto;
-    gap:8px;
-    padding:12px;
+    display:block;
+    padding:0;
+    overflow:visible;
   }
 
   .email-item{
-    min-width:240px;
+    width:100%;
+    min-width:unset;
     height:auto;
-    flex-shrink:0;
   }
 
   .email-inner{
-    padding:14px;
+    padding:16px 18px;
   }
 
   .viewer{
+    display:none;
     padding:20px;
   }
 
-  #subject{
-    font-size:1.4rem;
+  .viewer.mobile-open{
+    display:block;
   }
 
-  .meta{
-    flex-direction:column;
-    gap:10px;
+  .sidebar.mobile-hidden{
+    display:none;
   }
+
+}
+
+.back-btn{
+    display:none;
+}
+
+@media (max-width:768px){
+
+.back-btn{
+    display:inline-flex;
+    margin-bottom:18px;
+    background:none;
+    border:none;
+    color:#2f3a2f;
+    cursor:pointer;
+    font-size:.95rem;
+    font-weight:600;
+}
 
 }
 
