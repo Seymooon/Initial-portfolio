@@ -4,63 +4,464 @@ import MainLayout from "../layouts/MainLayout.astro";
 
 <MainLayout title="Portfolio">
 
-  <section class="mx-auto max-w-5xl px-6 md:px-16 py-24">
+<section class="email-page">
 
-    <div class="text-center">
+  <!-- ================= HEADER ================= -->
 
-  <h1 class="text-6xl md:text-7xl font-serif font-semibold text-[#2f3a2f] leading-none">
-    Portfolio
-  </h1>
+  <div class="intro">
 
-  <p class="mt-4 text-sm uppercase tracking-[0.35em] text-[#7a8b78]">
-    UNDER DEVELOPMENT :P
-  </p>
+    <p class="eyebrow">Virtual Assistant</p>
 
-  <p class="mt-6 mx-auto max-w-xl text-lg leading-8 text-zinc-600">
-    I'm currently building this section with case studies and sample projects.
-    Check back soon to see examples of my work!
-  </p>
+    <h1>Email</h1>
 
-</div>
+    <p class="description">
+      Simulated email examples demonstrating professional communication and inbox management.
+    </p>
 
-    <div class="mt-12 flex justify-center">
+  </div>
 
-      <div class="overflow-hidden rounded-2xl border border-[#e7e1d6] bg-[#faf7f2] shadow-md">
+  <!-- ================= EMAIL APP ================= -->
 
-        <iframe
-          src="https://giphy.com/embed/BSx6mzbW1ew7K"
-          width="480"
-          height="360"
-          frameborder="0"
-          allowfullscreen
-          class="block max-w-full"
-        ></iframe>
+  <div class="email-app">
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+      <div class="email-list">
+
+        <button class="email-item active" data-id="0">
+          <div class="email-inner">
+            <strong>Interview Schedule Confirmation</strong>
+            <span>Recruitment coordination completed</span>
+          </div>
+        </button>
+
+        <button class="email-item" data-id="1">
+          <div class="email-inner">
+            <strong>Client Proposal Follow-up</strong>
+            <span>Awaiting response</span>
+          </div>
+        </button>
+
+        <button class="email-item" data-id="2">
+          <div class="email-inner">
+            <strong>Operations Summary</strong>
+            <span>Workflow completed</span>
+          </div>
+        </button>
 
       </div>
 
+    </aside>
+
+    <!-- VIEWER -->
+
+    <main class="viewer">
+
+      <h2 id="subject">Loading...</h2>
+
+      <div class="meta">
+
+        <div class="sender-block">
+          <strong id="sender">---</strong>
+          <span id="email">---</span>
+        </div>
+
+        <small id="time">---</small>
+
+      </div>
+
+      <!-- LABELS -->
+      <div class="labels" id="labels"></div>
+
+      <!-- EMAIL BODY -->
+      <div class="body" id="body">Loading email...</div>
+
+    </main>
+
+  </div>
+
+
+<!-- ================= GOOGLE SHEETS DASHBOARD ================= -->
+
+<section class="sheets-card">
+
+  <div class="sheets-header">
+    <h2>Data Management Table</h2>
+    <p>
+      A sample dataset I built to streamline workflow tracking and improve operational efficiency. You can open the full sheet to view the formulas.
+    </p>
+
+    <div class="sheets-actions">
+      <button onclick="toggleSheets()">Toggle View</button>
+      <a href="https://docs.google.com/spreadsheets/d/1UDISI8quVRc3n1QT2GkashCikXvGapFkOJgWtxEpy1U/edit?usp=sharing" target="_blank">
+  Open Full Sheet
+</a>
     </div>
+  </div>
 
-    <div class="mt-12 flex justify-center">
+  <div class="sheets-frame" id="sheetsFrame">
+    <iframe
+src="https://docs.google.com/spreadsheets/d/1UDISI8quVRc3n1QT2GkashCikXvGapFkOJgWtxEpy1U/preview?rm=minimal"
+loading="lazy">
+</iframe>
+  </div>
 
-      <a
-        href="/contact"
-        class="rounded-full border border-[#6f7f6a] px-7 py-3 text-[#6f7f6a] transition duration-300 hover:bg-[#6f7f6a] hover:text-[#f6f2ea]"
-      >
-        Let's work together →
-      </a>
+</section>
 
-    </div>
+</section>
 
-  </section>
 
-  <style>
 
-    iframe{
-      display:block;
-      max-width:100%;
-      border:0;
-    }
+<!-- ================= SCRIPT ================= -->
 
-  </style>
+<script is:inline>
+
+const emails = document.querySelectorAll(".email-item");
+
+const subjectEl = document.getElementById("subject");
+const senderEl = document.getElementById("sender");
+const emailEl = document.getElementById("email");
+const timeEl = document.getElementById("time");
+const bodyEl = document.getElementById("body");
+const labelsEl = document.getElementById("labels");
+
+const data = [
+
+  {
+    subject: "Interview Schedule Confirmation",
+    sender: "Example",
+    email: "example1@portfolio.samples",
+    time: "June 30, 2026",
+
+    labels: ["Recruitment", "Confirmed", "High Priority"],
+
+    body: `
+Greetings!
+
+Your interview is scheduled for Friday, July 10, 2026, at 2:00 PM EST. A Google Calendar invitation has been sent to your email and includes all the meeting details. 
+
+Please review and accept the invitation to ensure the event is added to your calendar and that you have easy access to the meeting. To help us begin on time, we kindly ask that you join the meeting at least 5 minutes before your scheduled interview. This will allow time to confirm your audio and video settings before we get started.
+
+If you have any questions or experience any issues accessing the calendar invitation or meeting link, please don't hesitate to reach out. We look forward to speaking with you and wish you the best in your interview.
+
+Sincerity woven with hope,
+John Simon Gutang
+    `
+  },
+
+  {
+    subject: "Client Proposal Follow-up",
+    sender: "Example",
+    email: "example2@portfolio.samples",
+    time: "June 29, 2026",
+
+    labels: ["Client Outreach"],
+
+    body: `
+Hi there,
+
+I hope you're doing well. I wanted to follow up on the proposal I sent recently and see if you've had a chance to review it. If you have any questions or would like to discuss any part of it, I'd be happy to help.
+
+Thank you for your time and consideration. I look forward to hearing your thoughts.
+
+Sincerity woven with hope,
+John Simon Gutang
+    `
+  },
+
+  {
+    subject: "Operations Summary",
+    sender: "Example",
+    email: "example3@portfolio.samples",
+    time: "June 28, 2026",
+
+    labels: ["Operations", "Completed"],
+
+    body: `
+Hi Example!
+
+I’ve completed the Google Workspace setup for the new marketing campaign. The shared folder in Google Drive has been organized, the content calendar in Google Sheets has been updated, and the team meeting has been scheduled through Google Calendar with all supporting documents attached.
+
+Everything is ready for the team to begin work.
+
+Let me know if you'd like any final adjustments before we move forward.
+
+Sincerity woven with hope,
+John Simon Gutang
+    `
+  }
+
+];
+
+function render(i){
+
+  const mail = data[i];
+
+  subjectEl.textContent = mail.subject;
+  senderEl.textContent = mail.sender;
+  emailEl.textContent = mail.email;
+  timeEl.textContent = mail.time;
+
+  labelsEl.innerHTML = mail.labels
+    .map(l => {
+      const c = getColor(l);
+      return `<span class="label-chip" style="background:${c.bg}; color:${c.text}; border:1px solid ${c.border}">
+        ${l}
+      </span>`;
+    })
+    .join("");
+
+  bodyEl.innerHTML = mail.body;
+
+  emails.forEach(e => e.classList.remove("active"));
+  emails[i].classList.add("active");
+
+}
+
+emails.forEach(btn => {
+  btn.addEventListener("click", () => render(Number(btn.dataset.id)));
+});
+
+render(0);
+
+function getColor(label){
+
+  const map = {
+    "Recruitment": { bg:"#e8f0fe", text:"#2b4f81", border:"#c9dcff" },
+    "Confirmed": { bg:"#e6f4ea", text:"#1e5a3c", border:"#c7ebd3" },
+    "High Priority": { bg:"#fde7e7", text:"#8a2c2c", border:"#f7c5c5" },
+    "Client Outreach": { bg:"#fff4e5", text:"#8a5a1e", border:"#f7ddb5" },
+    "Operations": { bg:"#f1efe9", text:"#5f6f5f", border:"#e7e1d6" },
+    "Completed": { bg:"#eaf7ff", text:"#1f5a7a", border:"#cbe9ff" }
+  };
+
+  return map[label] || {
+    bg:"#f1efe9",
+    text:"#5f6f5f",
+    border:"#e7e1d6"
+  };
+
+}
+function toggleSheets() {
+  const frame = document.getElementById("sheetsFrame");
+
+  if (frame.style.height === "0px") {
+    frame.style.height = "600px";
+    frame.style.opacity = "1";
+  } else {
+    frame.style.height = "0px";
+    frame.style.opacity = "0.5";
+  }
+}
+
+</script>
+
+<!-- ================= STYLE (FIXED SPACING ENGINE) ================= -->
+
+<style>
+
+.email-page{
+  max-width:1100px;
+  margin:auto;
+  padding:6rem 1.5rem;
+}
+
+/* HEADER */
+.eyebrow{
+  font-size:.8rem;
+  text-transform:uppercase;
+  letter-spacing:.3em;
+  color:#7a8b78;
+}
+
+.intro h1{
+  font-family:serif;
+  font-size:3.6rem;
+  font-weight:600;
+  color:#2f3a2f;
+}
+
+.description{
+  margin-top:1rem;
+  color:#6b6b6b;
+  line-height:1.9;
+}
+
+/* LAYOUT */
+.email-app{
+  margin-top:4rem;
+  display:grid;
+  grid-template-columns:300px 1fr;
+  border:1px solid #e7e1d6;
+  border-radius:22px;
+  overflow:hidden;
+}
+
+/* SIDEBAR */
+.sidebar{
+  background:#faf7f2;
+  border-right:1px solid #e7e1d6;
+}
+
+.email-item{
+  width:100%;
+  height:78px;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+}
+
+.email-inner{
+  width:100%;
+  padding:14px 16px;
+  display:flex;
+  flex-direction:column;
+  gap:4px;
+  text-align:left;
+}
+
+.email-item:hover .email-inner{
+  background:#f1efe9;
+}
+
+.email-item.active .email-inner{
+  background:#e7e1d6;
+}
+
+/* TEXT */
+.email-inner strong{
+  font-size:14px;
+  color:#2f3a2f;
+}
+
+.email-inner span{
+  font-size:12px;
+  color:#6b6b6b;
+}
+
+/* VIEWER */
+.viewer{
+  padding:28px;
+  background:#fff;
+}
+
+#subject{
+  font-size:1.8rem;
+  font-weight:600;
+  color:#2f3a2f;
+}
+
+.meta{
+  display:flex;
+  justify-content:space-between;
+  margin-top:10px;
+}
+
+.sender-block{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+
+/* ================= FINAL EMAIL SPACING FIX ================= */
+.body{
+  margin-top:20px;
+  color:#2f3a2f;
+
+  /* THIS IS THE KEY FIX */
+  white-space: pre-line;
+  line-height: 1.6;
+}
+
+/* LABELS */
+.labels{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:14px 0;
+}
+
+.label-chip{
+  font-size:12px;
+  padding:6px 12px;
+  border-radius:999px;
+  font-weight:500;
+}
+
+/* ================= SHEETS SOFT CARD ================= */
+
+.sheets-card {
+  margin-top: 4rem;
+  padding: 1.5rem;
+  border: 1px solid #e7e1d6;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.sheets-header h2{
+  font-family: serif;
+  font-size: 2rem;
+  font-weight: 600;
+  color: #2f3a2f;
+  margin-bottom: .5rem;
+}
+
+.sheets-header p{
+  font-family: inherit;
+  margin-top: 0;
+  color: #6b6b6b;
+  line-height: 1.9;
+  max-width: 700px;
+}
+
+/* actions row */
+.sheets-actions {
+  margin-top: 1rem;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.sheets-actions button,
+.sheets-actions a {
+  font-size: 0.85rem;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #f8f8f6;
+  cursor: pointer;
+  text-decoration: none;
+  color: #2f3a2f;
+  transition: 0.2s ease;
+}
+
+.sheets-actions button:hover,
+.sheets-actions a:hover {
+  background: #e7e1d6;
+}
+
+/* iframe container */
+.sheets-frame {
+  margin-top: 1.5rem;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  height: 600px;
+  transition: all 0.3s ease;
+}
+
+/* iframe itself */
+.sheets-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+</style>
 
 </MainLayout>

@@ -22,3 +22,23 @@ p {
 a {
   text-decoration: none;
 }
+.gmail-email.read{
+
+  opacity:.75;
+
+}
+
+.gmail-email.read h4{
+
+  font-weight:500;
+
+  color:#3f4a3f;
+
+}
+
+/* unread (optional emphasis) */
+.gmail-email:not(.read) h4{
+
+  font-weight:700;
+
+}
