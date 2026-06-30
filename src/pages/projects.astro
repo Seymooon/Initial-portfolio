@@ -462,6 +462,60 @@ function toggleSheets() {
   border: none;
 }
 
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .email-page{
+    padding:4rem 1rem;
+  }
+
+  .intro h1{
+    font-size:2.4rem;
+  }
+
+  .email-app{
+    grid-template-columns:1fr;
+    overflow:hidden;
+  }
+
+  .sidebar{
+    border-right:none;
+    border-bottom:1px solid #e7e1d6;
+  }
+
+  .email-list{
+    display:flex;
+    overflow-x:auto;
+    gap:8px;
+    padding:12px;
+  }
+
+  .email-item{
+    min-width:240px;
+    height:auto;
+    flex-shrink:0;
+  }
+
+  .email-inner{
+    padding:14px;
+  }
+
+  .viewer{
+    padding:20px;
+  }
+
+  #subject{
+    font-size:1.4rem;
+  }
+
+  .meta{
+    flex-direction:column;
+    gap:10px;
+  }
+
+}
+
 </style>
 
 </MainLayout>
